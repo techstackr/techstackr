@@ -1,0 +1,27 @@
+:root {
+  --main-font-clr: #36454f;
+  --main-font-family: 'Cormorant', serif;
+  --main-accent-clr: rgb(239, 212, 207);
+  --lt-accent-clr: rgba(239, 212, 207, 0.5);
+  --button-highlight-color: rgb(0, 109, 91, 0.7);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  color: var(--main-font-clr);
+  font-family: var(--main-font-family);
+}
+
+#app {
+  padding-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: lightsalmon;
+}
+
+p {
+  font-size: 3rem;
+}
