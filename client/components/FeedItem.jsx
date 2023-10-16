@@ -12,4 +12,4 @@ const FeedItem = props => {
   );
 };
 
-export default Feed;
+export default FeedItem;
