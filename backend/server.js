@@ -1,6 +1,7 @@
 const path = require('path');
 const express = require('express');
 const app = express();
+const libraryRouter = require('./routers/libraryRouter');
 
 const PORT = 3000;
 
@@ -11,6 +12,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.resolve(__dirname, '../client')));
 
 //define routes here
+app.use('/api/users', libraryRouter);
 
 //catch all router
 app.use((req, res) =>
