@@ -1,11 +1,10 @@
-const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: [
     // entry point of our app
-    './client/index.js',
+    '/client/index.js',
   ],
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -15,6 +14,7 @@ module.exports = {
   devtool: 'eval-source-map',
   mode: process.env.NODE_ENV,
   devServer: {
+    host: 'localhost',
     compress: true,
     open: true,
     // enable HMR on the devServer
@@ -36,7 +36,11 @@ module.exports = {
      * routes api fetch requests from localhost:8080/api/* (webpack dev server)
      * to localhost:3000/api/* (where our Express server is running)
      */
-    proxy: {},
+    host: 'localhost',
+    port: 8090,
+    proxy: {
+      // '/': 'http://localhost:3000',
+    },
   },
   module: {
     rules: [
@@ -53,13 +57,13 @@ module.exports = {
       {
         test: /.(css|scss)$/,
         exclude: /node_modules/,
-        use: ['style-loader', 'css-loader'],
+        use: ['style-loader', 'css-loader', 'sass-loader'],
       },
     ],
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './index.html',
+      template: './client/index.html',
     }),
   ],
   resolve: {
