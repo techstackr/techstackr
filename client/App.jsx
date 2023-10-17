@@ -10,7 +10,6 @@ const App = () => {
       <div id='app-container'>
         <Nav />
         <div id='main-container'>
-          <FilterBox />
           <Feed />
         </div>
       </div>
