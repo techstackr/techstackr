@@ -1,7 +1,9 @@
 const path = require('path');
 const express = require('express');
 const app = express();
-const libraryRouter = require('./routers/libraryRouter');
+const userRouter = require('./routers/userRouter');
+const technologyRouter = require('./routers/technologyRouter');
+const postRouter = require('./routers/postRouter');
 
 const PORT = 3000;
 
@@ -12,12 +14,14 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.resolve(__dirname, '../client')));
 
 //define routes here
-app.use('/api/users', libraryRouter);
+app.use('/users', userRouter);
+app.use('/tech', technologyRouter);
+app.use('/posts', postRouter);
 
 //catch all router
-app.use((req, res) =>
-  res.status(404).send("This is not the page you're looking for..."),
-);
+app.use((req, res) => {
+  return res.status(404).send('Nothing Found');
+});
 
 //express error handler
 app.use((err, req, res, next) => {
