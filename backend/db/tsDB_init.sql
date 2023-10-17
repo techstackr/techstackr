@@ -1,30 +1,31 @@
 CREATE TABLE users (
-  "user_id" serial PRIMARY KEY NOT NULL,
-  "username" varchar NOT NULL,
-  "password_hash" varchar NOT NULL,
-  "created_at" timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  user_id serial PRIMARY KEY NOT NULL,
+  username varchar(50) NOT NULL,
+  password_hash varchar(50) NOT NULL,
+  created_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE technologies (
-  "technology_id" serial PRIMARY KEY NOT NULL,
-  "technology_name" varchar,
-  "description" text,
-  "icon" varchar,
-  "tags" varchar
+  technology_id serial PRIMARY KEY NOT NULL,
+  technology_name varchar,
+  description text,
+  icon varchar,
+  tags varchar
 );
 
 CREATE TABLE posts (
-  "post_id" serial PRIMARY KEY NOT NULL,
-  "user_id" integer NOT NULL,
-  "post_content" text,
-  "post_timestamp" timestamp NOT NULL,
-  "user_rating" integer NOT NULL,
-  "technology_id" integer NOT NULL
+  post_id serial PRIMARY KEY NOT NULL,
+  user_id integer NOT NULL REFERENCES users(user_id),
+  post_content text,
+  post_timestamp timestamp NOT NULL,
+  user_rating integer NOT NULL CHECK (user_rating >= 1 AND user_rating <= 5),
+  technology_id integer NOT NULL REFERENCES technologies(technology_id)
 );
 
-ALTER TABLE "posts" ADD FOREIGN KEY ("user_id") REFERENCES "users" ("user_id");
+-- probably not needed
+-- ALTER TABLE "posts" ADD FOREIGN KEY ("user_id") REFERENCES "users" ("user_id");
 
-ALTER TABLE "posts" ADD FOREIGN KEY ("technology_id") REFERENCES "technologies" ("technology_id");
+-- ALTER TABLE "posts" ADD FOREIGN KEY ("technology_id") REFERENCES "technologies" ("technology_id");
 
 
 -- -- javascript: Serial, techname/varchar, desc/text, icon/varchar, tag/varchar, 
@@ -49,8 +50,8 @@ INSERT INTO technologies VALUES (9, 'Rust', 'Systems programming language focuse
 INSERT INTO technologies VALUES (10, 'Docker', 'Containerization platform for developing, shipping, and running applications', 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original-wordmark.svg', 'DevOps');
 -- -- mySQL
 INSERT INTO technologies VALUES (11, 'mySQL', 'Open-source relational database management system', 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original-wordmark.svg', 'Database');
--- -- MongeoDB
+-- -- MongoDB
 INSERT INTO technologies VALUES (12, 'MongoDB', 'Document-oriented NoSQL database', 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original-wordmark.svg', 'Database');
 
 
-INSERT INTO users VALUES (000001, 'Cris-Morales', 'imadmin')
+INSERT INTO users VALUES (1, 'Cris-Morales', 'imadmin')
