@@ -1,0 +1,22 @@
+:root {
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+#app-container {
+  padding: 2rem;
+  min-height: 100vh;
+  max-width: 1200px;
+  display: flex;
+  gap: 2rem;
+  background-color: lightsalmon;
+}
+
+#main-container {
+  border: solid black 1px;
+  flex-grow: 1;
+  text-align: center;
+}
