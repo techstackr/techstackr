@@ -1,0 +1,42 @@
+.popup {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+
+  /* Center the Popup horizontally and vertically */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1001; /* Adjust this value as needed */
+
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.input {
+    height: 10rem;
+    width: 20rem;
+    padding: 0; /* Set padding to 0 */
+}
+
+.add {
+    align-self: flex-start;
+}
+
+.submit {
+    align-self: flex-end;
+}
+
+input[type=radio]{
+    display:none;
+}
+
+.star {
+    cursor:pointer;
+}
+
+
+
