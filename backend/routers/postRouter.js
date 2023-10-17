@@ -10,7 +10,7 @@ router.post('/', postController.createPost, (req, res) => {
 
 // Feed
 router.get('/', postController.getPosts, (req, res) =>
-  res.status(200).json([...res.locals.feed]),
+  res.status(200).json(res.locals.feed),
 );
 
 // Get User Posts, maybe

@@ -38,12 +38,13 @@ technology_id: tags
 postController.getPosts = async (req, res, next) => {
   try {
     const response = await db.query(
-      'SELECT users.username, posts.post_content, posts.post_timestamp, posts.user_rating technologies.technology_name, technologies.description, technologies.icon FROM posts INNER JOIN users ON users.user_id = posts.user_id INNER JOIN technologies ON posts.technology_id = technologies.technology_id',
+      'SELECT users.username, posts.post_content, posts.post_timestamp, posts.user_rating, technologies.technology_name, technologies.description, technologies.icon FROM posts INNER JOIN users ON users.user_id = posts.user_id INNER JOIN technologies ON posts.technology_id = technologies.technology_id',
     );
     console.log('getPost');
 
     res.locals.feed = response.rows;
     console.log('Get request' + response.rows);
+    next();
   } catch (err) {
     next(err);
   }
