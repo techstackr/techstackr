@@ -1,4 +1,4 @@
-import { React, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import './../styles/Feed.scss';
 import FeedItem from '../components/FeedItem.jsx';
 
@@ -9,9 +9,9 @@ const Feed = () => {
   // useEffect
   // fetch posts by most recent and update feedItems state
 
-  const feedItems = fetchedFeed.map(item => <Feed item={item} />);
+  // const feedItems = fetchedFeed.map(item => <Feed item={item} />);
 
-  return <div id='feed-container'>{feedItems}</div>;
+  return <div id='feed-container'>Add Feed Here{/*feedItems*/}</div>;
 };
 
 export default Feed;

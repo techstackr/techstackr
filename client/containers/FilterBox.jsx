@@ -1,4 +1,4 @@
-import { React, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import './../styles/FilterBox.scss';
 import Filter from '../components/Filter.jsx';
 
@@ -11,7 +11,7 @@ const FilterBox = () => {
 
   const filterItems = fetchedFilters.map(item => <Filter item={item} />);
 
-  return <div id='filter-container'>{filterItems}</div>;
+  return <div id='filter-container'>Filter Container{filterItems}</div>;
 };
 
 export default FilterBox;

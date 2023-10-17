@@ -1,16 +1,19 @@
 import React from 'react';
-import styles from './styles/App.scss';
-import { Nav, FilterBox, Feed } from './containers/';
+import './styles/App.scss';
+import Nav from './containers/Nav';
+import FilterBox from './containers/FilterBox';
+import Feed from './containers/Feed';
 
 const App = () => {
   return (
     <div id='app'>
-      {/* 
-      <Nav />
-      <FilterBox />
-      <Feed>
-      */}
-      <p>Hello world!</p>
+      <div id='app-container'>
+        <Nav />
+        <div id='main-container'>
+          <FilterBox />
+          <Feed />
+        </div>
+      </div>
     </div>
   );
 };
