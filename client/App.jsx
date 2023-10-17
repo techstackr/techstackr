@@ -17,7 +17,6 @@ const App = () => {
       <div id='app-container'>
         <Nav togglePopup={togglePopup} />
         <div id='main-container'>
-          <FilterBox />
           <Feed />
         </div>
           {isPopupVisible && <Popup />}
