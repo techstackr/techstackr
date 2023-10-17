@@ -8,6 +8,12 @@ const FilterBox = () => {
 
   // useEffect
   // fetch filters by most posts and update feedItems state
+  useEffect(() => {
+    fetch('/api/tech/allTech')
+      .then(response => response.json())
+      .then(data => updatedFetchedFilters(data))
+      .catch(error => console.log(error));
+  }, []);
 
   const filterItems = fetchedFilters.map(item => <Filter item={item} />);
 

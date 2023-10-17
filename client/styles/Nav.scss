@@ -1,11 +1,22 @@
+@import 'App';
+
 #nav-container {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  font-family: $primary-font;
+  font-size: 1.5rem;
+  text-shadow: 0px 0px 10px $gray-50-transparent;
 }
 
 #create {
   display: flex;
   align-items: center;
   gap: 0.5em;
+}
+
+@media (max-width: 768px) {
+  #nav-container {
+    align-items: center;
+  }
 }

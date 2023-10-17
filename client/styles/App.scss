@@ -1,22 +1,50 @@
-:root {
-}
+@import url('https://fonts.googleapis.com/css2?family=Tilt+Neon&display=swap');
+
+$background-color: lightsalmon;
+$white-50-transparent: rgba(255, 255, 255, 0.5);
+$gray-50-transparent: rgba(116, 116, 116, 0.5);
+$primary-font: 'Tilt Neon', sans-serif;
+$accent-color: rgb(92, 92, 181);
 
 * {
   margin: 0;
   padding: 0;
 }
 
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+#app {
+  background-image: linear-gradient(
+    rgba(0, 0, 255, 0.5),
+    rgba(255, 255, 0, 0.5)
+  );
+  background-size: contain;
+}
 #app-container {
   padding: 2rem;
   min-height: 100vh;
   max-width: 1200px;
   display: flex;
   gap: 2rem;
-  background-color: lightsalmon;
+  margin: 0 auto;
 }
 
 #main-container {
-  border: solid black 1px;
   flex-grow: 1;
+  border-radius: 5px;
+  box-shadow: 0px 0px 7px $gray-50-transparent;
   text-align: center;
+  background-color: $white-50-transparent;
+}
+
+@media (max-width: 768px) {
+  #app-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  #main-container {
+    min-width: 100%;
+  }
 }
