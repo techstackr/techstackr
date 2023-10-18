@@ -9,7 +9,7 @@ router.post('/signup', userController.signup, (req, res) => {
 });
 
 // // Login
-router.post('/login', (req, res) => {
+router.post('/login', userController.login, (req, res) => {
   res.status(200).send('successfully logged in');
 });
 

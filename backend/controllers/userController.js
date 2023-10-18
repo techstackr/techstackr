@@ -25,6 +25,7 @@ userController.login = async (req, res, next) => {
   try {
     const { username, password } = req.body;
 
+    console.log('test');
     const queryText = 'SELECT * FROM users WHERE username = $1';
     const values = [username];
 
