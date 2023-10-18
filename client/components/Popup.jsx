@@ -73,7 +73,7 @@ const Popup = (props) => {
               const data = await response.json();
               setIcon(data.icon);
               setTechID(data.technology_id)
-              console.log(data);
+              console.log(data.technology_id);
             }}
           >
             Submit
