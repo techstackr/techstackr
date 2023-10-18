@@ -1,10 +1,11 @@
 const express = require('express');
 const router = express.Router();
 const postController = require('../controllers/postController.js');
-
+// postController.getPosts
 // Create Post
 router.post('/', postController.createPost, postController.getPosts, (req, res) => {
   //   res.json(res.locals.postBody);
+  console.log(res.locals.feed)
   res.status(201).json(res.locals.feed)
 });
 

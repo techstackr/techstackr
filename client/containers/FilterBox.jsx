@@ -6,7 +6,7 @@ const FilterBox = props => {
   const handleFilter = props;
 
   // STATE HOOKS
-  const [filters, updateFilters] = useState([]);
+  const [filters, updateFilters] = useState(['filter', 'flier']);
 
   const fetchFilters = () => {
     fetch('/tech')
@@ -19,18 +19,18 @@ const FilterBox = props => {
   // fetch all filters
   useEffect(fetchFilters, []);
 
-  const filterItems = filters.map(item => {
-    <div className='filter' onClick={handleFilter}>
-      {/*
-    Add logo image
-    Add name of tech
-     */}
-    </div>
-  }
+  // const filterItems = filters.map(item => {
+  //   return <div className='filter' onClick={handleFilter}>
+  //     {/*
+  //   Add logo image
+  //   Add name of tech
+  //    */}
+  //   </div>
+  // }
     
-  );
-
-  return <div id='filter-container'>Filter Container{filterItems}</div>;
+  // );
+  // {filterItems}
+  return <div id='filter-container'>Home</div>;
 };
 
 export default FilterBox;

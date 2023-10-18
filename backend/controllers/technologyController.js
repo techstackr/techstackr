@@ -12,14 +12,14 @@ techController.getTechnologies = async (req, res, next) => {
   } catch (err) {
     next(err);
   }
-};
+}; 
 
 techController.getTechIcon = async (req, res, next) => {
   try{
     const {id} = req.params
     console.log(id)
     const query1 =
-    `SELECT icon FROM technologies WHERE technology_name = \'${id}\'`;
+    `SELECT icon, technology_id FROM technologies WHERE technology_name = \'${id}\'`;
     const response = await db.query(query1);
     console.log(response.rows[0])
     res.locals.techIcon = response.rows[0];
