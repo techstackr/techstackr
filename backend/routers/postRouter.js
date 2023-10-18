@@ -1,9 +1,10 @@
 const express = require('express');
 const router = express.Router();
 const postController = require('../controllers/postController.js');
+const cookieParser = require('cookie-parser');
 // postController.getPosts
 // Create Post
-router.post('/', postController.createPost, postController.getPosts, (req, res) => {
+router.post('/', cookieParser(), postController.createPost, postController.getPosts, (req, res) => {
   //   res.json(res.locals.postBody);
   console.log(res.locals.feed)
   res.status(201).json(res.locals.feed)

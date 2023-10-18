@@ -11,7 +11,7 @@ const SignUp = () => {
           Sign up to share your thoughts<br></br> on your favorite dev
           languages, frameworks, and libraries
         </div>
-        <form action='/signup' method='post'>
+        <form action='/user/signup' method='post'>
           <section>
             <input
               type='text'
