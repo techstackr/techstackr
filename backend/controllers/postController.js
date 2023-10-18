@@ -21,7 +21,8 @@ postController.createPost = async (req, res, next) => {
     res.locals.postBody = response.rows;
     next();
   } catch (err) {
-    next(err);
+    const error = new Error("Error in postController.createPost: " + err.message);
+    next(error);
   }
 };
 
