@@ -7,7 +7,7 @@ const FeedItem = props => {
   const populateStars = count => {
     const stars = [];
     while (count > 0) {
-      stars.push(<span className='material-symbols-outlined star'>star</span>);
+      stars.push(<span key={`star${count}`} className='material-symbols-outlined star'>star</span>);
       count--;
     }
     return stars;

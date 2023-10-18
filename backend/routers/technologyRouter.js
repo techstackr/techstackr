@@ -7,6 +7,10 @@ router.get('/', techController.getTechnologies, (req, res) => {
   res.status(201).json(res.locals.allTech);
 });
 
+router.get('/icon/:id', techController.getTechIcon, (req, res) => {
+  res.status(200).json(res.locals.techIcon)
+})
+
 /**
  * @abstract Create new Tech
  */

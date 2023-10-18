@@ -23,29 +23,33 @@ const posts = [
 
 const Feed = () => {
   // STATE HOOKS
-  const [fetchedFeed, updateFetchedFeed] = useState(posts);
+  const [feed, updateFeed] = useState(posts);
 
-  // fetch posts and update fetchedFeed
-  useEffect(() => {
-    fetch('/api/posts')
-      .then(response => response.json())
-      .then(data => updatedFetchedFeed(data))
-      .catch(error => console.log(error));
-  }, []);
+  const fetchFeed = () => {
+    fetch('/posts')
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .then(data => updateFeed(data))
+    .catch(error => console.log(error));
+  };
+
+  // fetch posts and update feed
+  useEffect(fetchFeed, []);
 
   // filter posts
   const handleFilter = event => {
     const filter = event.target.id;
-    feedItems.filter(feedItem => feedItem.technology_id === filter);
+    const filteredFeed = feedItems.filter(feedItem => feedItem.technology_id === filter);
+    updateFeed(filteredFeed);
   };
 
-  const feedItems = fetchedFeed.map((item, index) => {
+  const feedItems = feed.map((item, index) => {
     return <FeedItem key={`FeedItem-${index}`} item={item} />;
   });
 
   return (
     <div id='feed-container'>
-      <FilterBox />
+      <FilterBox handleFilter={handleFilter}/>
       {feedItems}
     </div>
   );
