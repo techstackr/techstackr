@@ -21,10 +21,13 @@ const FilterBox = props => {
     fetchAll();
   }, []);
 
-  const filterItems = filters.map(item => {
+  const filterItems = filters.map((item, index) => {
     return (
-      <div className='filter' onClick={handleFilter}>
-        <img className='filter-img' src={item.icon}></img>
+      <div key={`filter-${index}`} className='filter' onClick={handleFilter}>
+        <img
+          id={item.technology_id}
+          className='filter-img'
+          src={item.icon}></img>
       </div>
     );
   });

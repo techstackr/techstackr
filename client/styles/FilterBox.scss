@@ -1,20 +1,26 @@
+@import 'App';
+
 #filter-container {
   text-align: left;
   font-weight: bold;
-  font-size: 20px;
-  padding-left: 2px;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 1rem;
 }
 
 .filter {
-  background-color: white;
-  padding: 1rem;
+  background-color: rgba(255, 255, 255, 0.8);
+  box-shadow: 0px 0px 7px $gray-50-transparent;
+  border-radius: 50%;
+  transition-duration: 0.2s;
+  transition-property: transform;
+  &:hover {
+    transform: scale(1.1);
+  }
 }
 
 .filter-img {
   height: 50px;
-  padding: 1em;
-  background-color: white;
+  padding: 0.7em;
 }
