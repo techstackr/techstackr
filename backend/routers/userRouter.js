@@ -4,14 +4,14 @@ const userController = require('../controllers/userController.js');
 // const cookieParser = require('cookie-parser');
 
 // // Create User aka signup
-router.post('/signUp', userController.signUp, (req, res) => {
+router.post('/signup', userController.signup, (req, res) => {
   res.status(201).send('successfully created user');
 });
 
 // // Login
-// router.post('/login', (req, res) => {
-//   res.status(200);
-// });
+router.post('/login', (req, res) => {
+  res.status(200).send('successfully logged in');
+});
 
 // Get Post by Technology, if frontend prefers it this way
 

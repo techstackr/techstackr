@@ -5,7 +5,7 @@ const salt = bcrypt.genSaltSync(SALT_WORK_FACTOR);
 
 const userController = {};
 
-userController.signUp = async (req, res, next) => {
+userController.signup = async (req, res, next) => {
   try {
     const { username, password } = req.body;
     const password_hash = bcrypt.hashSync(password, salt);
@@ -23,6 +23,20 @@ userController.signUp = async (req, res, next) => {
 
 userController.login = async (req, res, next) => {
   try {
+    const { username, password } = req.body;
+
+    const queryText = 'SELECT * FROM users WHERE username = $1';
+    const values = [username];
+
+    const result = await db.query(queryText, values);
+
+    // user does not exist
+    if (!result.rows.length) {
+      throw new Error('Invalid username or password');
+    }
+    if (!bcrypt.compareSync(password, result.rows[0].password_hash)) {
+      throw new Error('Invalid username or password');
+    }
     next();
   } catch (err) {
     next(err);
