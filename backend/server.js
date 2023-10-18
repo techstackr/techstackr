@@ -1,6 +1,7 @@
 const path = require('path');
 const express = require('express');
 const app = express();
+
 const userRouter = require('./routers/userRouter');
 const technologyRouter = require('./routers/technologyRouter');
 const postRouter = require('./routers/postRouter');
@@ -14,7 +15,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.resolve(__dirname, '../client')));
 
 //define routes here
-app.use('/users', userRouter);
+app.use('/user', userRouter);
 app.use('/tech', technologyRouter);
 app.use('/posts', postRouter);
 
