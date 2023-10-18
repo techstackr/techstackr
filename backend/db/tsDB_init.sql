@@ -22,6 +22,13 @@ CREATE TABLE posts (
   technology_id integer NOT NULL REFERENCES technologies(technology_id)
 );
 
+CREATE TABLE sessions (
+  user_id integer NOT NULL REFERENCES users(user_id),
+  session_id VARCHAR(255) NOT NULL PRIMARY KEY, 
+  -- session_ json NOT NULL, -- might need, idk yet
+  expire timestamp(5) NOT NULL
+)
+
 -- probably not needed
 -- ALTER TABLE "posts" ADD FOREIGN KEY ("user_id") REFERENCES "users" ("user_id");
 

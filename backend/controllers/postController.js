@@ -4,10 +4,13 @@ const postController = {};
 postController.createPost = async (req, res, next) => {
   try {
     console.log('createPost');
-    const { user_id, post_content, user_rating, technology_id } = req.body;
-    console.log(technology_id);
+    const { user_id } = req.cookies
+    const { post_content, user_rating, technology_id } = req.body;
+    console.log(technology_id)
+
     // const user_id = req.session.user_id; // will be needed for later
     //omit post_id since it is serial
+    console.log(req.cookies);
     // console.log('body: ', req.body);
     // console.log(user_id, post_content, user_rating, technology_id);
     const ourQ = `INSERT INTO posts(user_id, post_content, post_timestamp, user_rating, technology_id ) VALUES(${user_id}, \'${post_content}\', NOW(), ${user_rating}, ${technology_id})`;

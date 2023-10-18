@@ -21,15 +21,16 @@ userController.signup = async (req, res, next) => {
   }
 };
 
-userController.login = async (req, res, next) => {
+userController.signin = async (req, res, next) => {
   try {
     const { username, password } = req.body;
-
+    console.log(username, password)
     console.log('test');
     const queryText = 'SELECT * FROM users WHERE username = $1';
     const values = [username];
 
     const result = await db.query(queryText, values);
+    res.locals.userID = result.rows[0].user_id;
 
     // user does not exist
     if (!result.rows.length) {
@@ -38,21 +39,27 @@ userController.login = async (req, res, next) => {
     if (!bcrypt.compareSync(password, result.rows[0].password_hash)) {
       throw new Error('Invalid username or password');
     }
+
+
     next();
   } catch (err) {
     next(err);
   }
 };
 
-userController.setCookie = async (req, res, next) => {
+userController.setIDCookie = async (req, res, next) => {
   try {
+   const { userID } = res.locals;
+    res.cookie('user_id', userID, {
+      maxAge: 24 * 60 * 60 * 1000,            
+    });
     next();
   } catch (err) {
     next(err);
   }
 };
 
-userController.setSSIDCookie = async (req, res, next) => {
+userController.createSession = async (req, res, next) => {
   try {
     next();
   } catch (err) {
@@ -61,15 +68,17 @@ userController.setSSIDCookie = async (req, res, next) => {
 };
 
 userController.isLoggedIn = async (req, res, next) => {
-  try {
-    next();
-  } catch (err) {
-    next(err);
-  }
+  console.log('loginyay')
+    if(req.cookies.user_id){
+      next();
+    } else {
+      res.redirect('/signin');
+    } 
 };
 
 userController.startSession = async (req, res, next) => {
   try {
+    
     next();
   } catch (err) {
     next(err);

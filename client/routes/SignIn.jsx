@@ -7,7 +7,7 @@ const SignIn = () => {
     <div id='signin-container'>
       <h1>Techstackr</h1>
       <div id='signin-modal-container'>
-        <form action='/login/password' method='post'>
+        <form action='/user/signin' method='post'>
           <section>
             <input
               type='text'

@@ -1,19 +1,40 @@
 const path = require('path');
 const express = require('express');
 const app = express();
+const session = require('express-session');
+const pgSession = require('connect-pg-simple')(session)
+const {pool} = require('./db/model.js')
+const cookieParser = require('cookie-parser');
+
 
 const userRouter = require('./routers/userRouter');
 const technologyRouter = require('./routers/technologyRouter');
 const postRouter = require('./routers/postRouter');
+const userController = require('./controllers/userController.js');
+
 
 const PORT = 3000;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser());
+
+
 
 //handle requests for static files
 app.use(express.static(path.resolve(__dirname, '../client')));
+// app.use(session({
+//   store: new pgSession({
+//     pool:pool,
+//     tableName: 'sessions'
+//   }),
+//   resave: false,
+//   saveUninitialized: false,
+//   secret: false
+// }))
 
+
+// userController.isLoggedIn();
 //define routes here
 app.use('/user', userRouter);
 app.use('/tech', technologyRouter);
