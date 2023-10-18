@@ -28,9 +28,9 @@ const FeedItem = props => {
           className='user-pic'
           src='https://ca.slack-edge.com/T05BNUKN92M-U05HV0RGWGN-707f045c59b4-512'></img>
         <h3 className='username'>{props.item.username}</h3>
-        <p>{props.readableDate}</p>
+        <p className='post-date'>{props.readableDate}</p>
       </div>
-
+      <hr />
       <p className='text-body'>{post_content}</p>
       <div className='tech-rating'>
         <div className='img-container'>

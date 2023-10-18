@@ -22,8 +22,7 @@ const Feed = props => {
   const feedItems = feed.map((item, index) => {
     console.log(item.post_timestamp);
     const date = new Date(item.post_timestamp);
-    const date2 = new Date(item.post_timestamp).toLocaleString();
-    console.log('date2:', date2);
+    console.log('date2:', date);
     date.setHours(date.getHours() - 4);
     const readableDate = date.toLocaleString();
     return (
