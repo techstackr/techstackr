@@ -1,6 +1,20 @@
 #filter-container {
-    text-align: left;
-    font-weight: bold;
-    font-size: 20px;
-    padding-left: 2px;
+  text-align: left;
+  font-weight: bold;
+  font-size: 20px;
+  padding-left: 2px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.filter {
+  background-color: white;
+  padding: 1rem;
+}
+
+.filter-img {
+  height: 50px;
+  padding: 1em;
+  background-color: white;
 }
