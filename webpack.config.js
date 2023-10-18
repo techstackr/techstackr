@@ -39,7 +39,7 @@ module.exports = {
     host: 'localhost',
     port: 8090,
     proxy: {
-      '/post/**': {
+      '/posts/**': {
         target: 'http://localhost:3000',
         secure: false,
       },
