@@ -9,9 +9,12 @@ userController.signUp = async (req, res, next) => {
   try {
     const { username, password } = req.body;
     const password_hash = bcrypt.hashSync(password, salt);
-    const response = await db.query(
-      `INSERT INTO users(username, password_hash) VALUES('${username}', '${password_hash}');`,
-    );
+
+    const queryText =
+      'INSERT INTO users(username, password_hash) VALUES($1, $2)';
+    const values = [username, password_hash];
+
+    await db.query(queryText, values);
     next();
   } catch (err) {
     next(err);
