@@ -39,7 +39,14 @@ module.exports = {
     host: 'localhost',
     port: 8090,
     proxy: {
-      // '/': 'http://localhost:3000',
+      '/post/**': {
+      target: 'http://localhost:3000',
+      secure: false,
+    },
+    '/tech/**': {
+      target: 'http://localhost:3000',
+      secure: false,
+    },
     },
   },
   module: {
@@ -70,4 +77,4 @@ module.exports = {
     // Enable importing JS / JSX files without specifying their extension
     extensions: ['.js', '.jsx'],
   },
-};
+}
