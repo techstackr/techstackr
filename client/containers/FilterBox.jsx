@@ -2,22 +2,35 @@ import React, { useState, useEffect } from 'react';
 import './../styles/FilterBox.scss';
 import Filter from '../components/Filter.jsx';
 
-const FilterBox = () => {
+const FilterBox = props => {
+  const handleFilter = props;
+
   // STATE HOOKS
-  const [fetchedFilters, updateFetchedFilters] = useState([]);
+  const [filters, updateFilters] = useState(['filter', 'flier']);
 
-  // useEffect
-  // fetch filters by most posts and update feedItems state
-  useEffect(() => {
-    fetch('/api/tech/allTech')
-      .then(response => response.json())
-      .then(data => updatedFetchedFilters(data))
-      .catch(error => console.log(error));
-  }, []);
+  const fetchFilters = () => {
+    fetch('/tech')
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .then(data => updateFilters(data))
+    .catch(error => console.log(error));
+  };
 
-  const filterItems = fetchedFilters.map(item => <Filter item={item} />);
+  // fetch all filters
+  useEffect(fetchFilters, []);
 
-  return <div id='filter-container'>Filter Container{filterItems}</div>;
+  // const filterItems = filters.map(item => {
+  //   return <div className='filter' onClick={handleFilter}>
+  //     {/*
+  //   Add logo image
+  //   Add name of tech
+  //    */}
+  //   </div>
+  // }
+    
+  // );
+  // {filterItems}
+  return <div id='filter-container'>Home</div>;
 };
 
 export default FilterBox;

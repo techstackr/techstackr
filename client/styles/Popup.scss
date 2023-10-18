@@ -1,8 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
 .popup {
   background-color: #fff;
   padding: 20px;
   border-radius: 5px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); 
+  font-family: 'Roboto';
+  font-weight: bold;
 
   /* Center the Popup horizontally and vertically */
   position: fixed;
@@ -19,7 +23,8 @@
 .input {
     height: 10rem;
     width: 20rem;
-    padding: 0; /* Set padding to 0 */
+    padding: 10px;
+    line-height: 1.5 /* Set padding to 0 */
 }
 
 .add {
@@ -28,6 +33,10 @@
 
 .submit {
     align-self: flex-end;
+    font-family: 'Roboto';
+}
+.input2 {
+    align-self: center;
 }
 
 input[type=radio]{
