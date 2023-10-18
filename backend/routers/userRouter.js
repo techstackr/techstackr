@@ -13,6 +13,10 @@ router.post('/login', userController.login, (req, res) => {
   res.status(200).send('successfully logged in');
 });
 
+router.get('/logout', (req, res) => {
+  res.status.send('Logged Out');
+});
+
 // Get Post by Technology, if frontend prefers it this way
 
 // Delete Post
