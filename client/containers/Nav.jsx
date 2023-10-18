@@ -2,6 +2,7 @@ import React from 'react';
 import './../styles/Nav.scss';
 
 const Nav = ({ togglePopup }) => {
+
   return (
     <div id='nav-container'>
       <h2>Techstackr</h2>
