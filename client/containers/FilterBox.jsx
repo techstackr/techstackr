@@ -3,34 +3,36 @@ import './../styles/FilterBox.scss';
 import Filter from '../components/Filter.jsx';
 
 const FilterBox = props => {
-  const handleFilter = props;
+  const { handleFilter } = props;
 
   // STATE HOOKS
-  const [filters, updateFilters] = useState(['filter', 'flier']);
+  const [filters, updateFilters] = useState([]);
 
-  const fetchFilters = () => {
-    fetch('/tech')
-    .then(response => response.json())
-    .then(data => console.log(data))
-    .then(data => updateFilters(data))
-    .catch(error => console.log(error));
-  };
+  useEffect(() => {
+    const fetchAll = async () => {
+      try {
+        const response = await fetch('/tech');
+        const data = await response.json();
+        updateFilters(data.reverse());
+      } catch (err) {
+        console.log('error');
+      }
+    };
+    fetchAll();
+  }, []);
 
-  // fetch all filters
-  useEffect(fetchFilters, []);
+  const filterItems = filters.map((item, index) => {
+    return (
+      <div key={`filter-${index}`} className='filter' onClick={handleFilter}>
+        <img
+          id={item.technology_id}
+          className='filter-img'
+          src={item.icon}></img>
+      </div>
+    );
+  });
 
-  // const filterItems = filters.map(item => {
-  //   return <div className='filter' onClick={handleFilter}>
-  //     {/*
-  //   Add logo image
-  //   Add name of tech
-  //    */}
-  //   </div>
-  // }
-    
-  // );
-  // {filterItems}
-  return <div id='filter-container'>Home</div>;
+  return <div id='filter-container'>{filterItems}</div>;
 };
 
 export default FilterBox;
