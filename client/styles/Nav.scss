@@ -15,6 +15,10 @@
   gap: 0.5em;
 }
 
+#create button {
+  cursor: pointer;
+}
+
 @media (max-width: 768px) {
   #nav-container {
     align-items: center;

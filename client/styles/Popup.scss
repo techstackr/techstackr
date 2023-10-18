@@ -3,8 +3,13 @@
 .popup {
   background-color: #fff;
   padding: 20px;
+<<<<<<< HEAD
   border-radius: 5px;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+=======
+  border-radius: 6px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); 
+>>>>>>> 44a47908c7c8afa3390faa53bfe3ba11623b3c72
   font-family: 'Roboto';
   font-weight: bold;
 
@@ -32,11 +37,31 @@
 }
 
 .submit {
+<<<<<<< HEAD
   align-self: flex-end;
   font-family: 'Roboto';
 }
 .input2 {
   align-self: center;
+=======
+    align-self: flex-end;
+    font-family: 'Roboto';
+    cursor: pointer;
+}
+
+.input2-container {
+    display: flex;
+    align-items: center; /* Vertically center the elements within the container */
+  }
+
+
+  .submit2 {
+    cursor: pointer;
+  }  
+
+.add {
+    cursor: pointer;
+>>>>>>> 44a47908c7c8afa3390faa53bfe3ba11623b3c72
 }
 
 input[type='radio'] {

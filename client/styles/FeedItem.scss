@@ -1,22 +1,35 @@
 @import 'App';
 
 .feed-item {
-  background-color: $white-50-transparent;
+  background-color: rgba(255, 255, 255, 0.8);
   // background-color: rgba(128, 128, 128, 0.152);
   padding: 1rem;
   border-radius: 5px;
   box-shadow: 0px 0px 7px $gray-50-transparent;
   display: flex;
- 
+
   flex-direction: column;
   align-items: start;
   gap: 1em;
   &:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transform: translateY(-.5px);
+    transform: translateY(-0.5px);
   }
 }
-.user-name {
+
+.user-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.user-pic {
+  height: 50px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 7px $gray-50-transparent;
+}
+
+.username {
   font-size: 16px;
   font-weight: bolder;
 }
@@ -33,14 +46,31 @@
   font-size: 15px;
 }
 
+.img-container {
+  background-color: rgba(255, 255, 255, 0.8);
+  box-shadow: 0px 0px 7px $gray-50-transparent;
+  border-radius: 50%;
+  transition-duration: 0.2s;
+  transition-property: transform;
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+.feed-item-img {
+  height: 40px;
+  padding: 0.5em;
+}
 .stars-container {
   display: flex;
   align-items: center;
+  transition-duration: 0.2s;
+  transition-property: transform;
+  &:hover {
+    transform: scale(1.2);
+  }
 }
 
 .star {
-  font-variation-settings: 'FILL' 1;
-  font-size: 1em;
-  color: blue;
   text-shadow: 0px 0px 4px $gray-50-transparent;
 }
