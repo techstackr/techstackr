@@ -24,8 +24,6 @@
 
 <h1 align="center">Techstackr</h1>
 
-# Techstackr
-
 Techstackr is a social media platform designed to address the challenges software developers face in keeping up with new technologies. It provides a space for developers to discuss frameworks, languages, libraries, and other dependencies, fostering a community where they can share real-world experiences and insights. With an intuitive user interface featuring feeds and posts, users can easily navigate and participate in discussions. The platform encourages developers to contribute by posting their thoughts on various frameworks, languages, or libraries, creating a dynamic environment for knowledge exchange and collaboration within the tech community.
 
 ## Table of Contents
